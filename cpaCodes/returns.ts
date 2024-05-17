@@ -189,6 +189,6 @@ export function getCPAReturnCodesByAbbreviation(
 ): CPACode[] {
   return _getCodesByAbbreviation(
     Object.values(cpaReturnCodes),
-    cpaCodeAbbreviation.toUpperCase()
+    cpaCodeAbbreviation
   )
 }

@@ -46,7 +46,7 @@ export function getCPATransactionCode(cpaCode) {
     return cpaTransactionCodes[cpaCode];
 }
 export function getCPATransactionCodesByAbbreviation(cpaCodeAbbreviation) {
-    return _getCodesByAbbreviation(Object.values(cpaTransactionCodes), cpaCodeAbbreviation.toUpperCase());
+    return _getCodesByAbbreviation(Object.values(cpaTransactionCodes), cpaCodeAbbreviation);
 }
 export { cpaTransactionCodesCommercial } from './transactions/commercial.js';
 export { cpaTransactionCodesFederal } from './transactions/federal.js';

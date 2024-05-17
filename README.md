@@ -1,3 +1,4 @@
 # CPA Codes for Node
 
-Canadian Payments Association (CPA) Transaction and Return Codes.
+Lookups, validations, and utility functions for Canadian Payments Association (CPA)
+transaction and return codes.

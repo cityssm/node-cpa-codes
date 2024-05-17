@@ -1,11 +1,13 @@
 import {
   getCPAReturnCode,
   getCPAReturnCodeCategory,
+  getCPAReturnCodesByAbbreviation,
   isCPAReturnCode
 } from './cpaCodes/returns.js'
 import {
   getCPATransactionCode,
   getCPATransactionCodeCategory,
+  getCPATransactionCodesByAbbreviation,
   isCPATransactionCode
 } from './cpaCodes/transactions.js'
 import type { CPACode, CPACodeCategory } from './types.js'
@@ -39,6 +41,20 @@ export function isCPACode(cpaCode: string): boolean {
  */
 export function getCPACode(cpaCode: string): CPACode | undefined {
   return getCPATransactionCode(cpaCode) ?? getCPAReturnCode(cpaCode)
+}
+
+/**
+ * Retrieves a list of CPA code objects that correspond to a given abbreviation.
+ * @param {string} cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
+ * @returns {CPACode[]} - A list of CPA code objects.
+ */
+export function getCPACodesByAbbreviation(
+  cpaCodeAbbreviation: string
+): CPACode[] {
+  const cpaCodes = getCPATransactionCodesByAbbreviation(cpaCodeAbbreviation)
+  cpaCodes.push(...getCPAReturnCodesByAbbreviation(cpaCodeAbbreviation))
+
+  return cpaCodes
 }
 
 export {

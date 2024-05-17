@@ -1,5 +1,9 @@
 import type { CPACode, CPACodeCategory } from './types'
 
+function _validateCodeFormat(cpaCode: string): boolean {
+  return /^\d{3}$/.test(cpaCode)
+}
+
 /**
  * Retrieves a category object from a given list.
  * @param {CPACodeCategory[]} categoryList - A list of CPA code category objects.
@@ -10,6 +14,10 @@ export function _getCodeCategory(
   categoryList: CPACodeCategory[],
   cpaCode: string
 ): CPACodeCategory | undefined {
+  if (!_validateCodeFormat(cpaCode)) {
+    return undefined
+  }
+
   return categoryList.find((possibleCategory) => {
     return (
       cpaCode >= possibleCategory.cpaCodeMin &&
@@ -20,14 +28,16 @@ export function _getCodeCategory(
 
 /**
  * Retrieves a list of CPA code objects that correspond to a given abbreviation.
- * @param codeList - A list of CPA code objects.
- * @param upperCaseCpaCodeAbbreviation - A CPA code abbreviation, English or French.
+ * @param {CPACode[]} codeList - A list of CPA code objects.
+ * @param {string} cpaCodeAbbreviation - A CPA code abbreviation, English or French.
  * @returns {CPACode[]} - A filtered list of CPA code objects.
  */
 export function _getCodesByAbbreviation(
   codeList: CPACode[],
-  upperCaseCpaCodeAbbreviation: string
+  cpaCodeAbbreviation: string
 ): CPACode[] {
+  const upperCaseCpaCodeAbbreviation = cpaCodeAbbreviation.toUpperCase()
+
   return codeList.filter((possibleCode) => {
     return (
       upperCaseCpaCodeAbbreviation ===

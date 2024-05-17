@@ -145,5 +145,5 @@ export function getCPAReturnCode(cpaCode) {
     return cpaReturnCodes[cpaCode];
 }
 export function getCPAReturnCodesByAbbreviation(cpaCodeAbbreviation) {
-    return _getCodesByAbbreviation(Object.values(cpaReturnCodes), cpaCodeAbbreviation.toUpperCase());
+    return _getCodesByAbbreviation(Object.values(cpaReturnCodes), cpaCodeAbbreviation);
 }

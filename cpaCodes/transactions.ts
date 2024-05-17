@@ -101,7 +101,7 @@ export function getCPATransactionCodesByAbbreviation(
 ): CPACode[] {
   return _getCodesByAbbreviation(
     Object.values(cpaTransactionCodes),
-    cpaCodeAbbreviation.toUpperCase()
+    cpaCodeAbbreviation
   )
 }
 
