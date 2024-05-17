@@ -1,0 +1,11 @@
+import type { CPACode, CPACodeCategory, CPACodeString } from '../types.js';
+export declare const cpaReturnCodeCategories: CPACodeCategory[];
+export declare const cpaReturnCodesDishonoured: Record<CPACodeString, CPACode>;
+export declare const cpaReturnCodesCustomerInitiated: Record<CPACodeString, CPACode>;
+export declare const cpaReturnCodesCreditReturn: Record<CPACodeString, CPACode>;
+export declare const cpaReturnCodesDefault: Record<CPACodeString, CPACode>;
+export declare const cpaReturnCodes: Record<CPACodeString, CPACode>;
+export declare function getCPAReturnCodeCategory(cpaCode: string): CPACodeCategory | undefined;
+export declare function isCPAReturnCode(cpaCode: string): boolean;
+export declare function getCPAReturnCode(cpaCode: string): CPACode | undefined;
+export declare function getCPAReturnCodesByAbbreviation(cpaCodeAbbreviation: string): CPACode[];

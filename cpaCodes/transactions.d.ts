@@ -1,0 +1,11 @@
+import type { CPACode, CPACodeCategory, CPACodeString } from '../types.js';
+export declare const cpaTransactionCodeCategories: CPACodeCategory[];
+export declare const cpaTransactionCodes: Record<CPACodeString, CPACode>;
+export declare function getCPATransactionCodeCategory(cpaCode: string): CPACodeCategory | undefined;
+export declare function isCPATransactionCode(cpaCode: string): boolean;
+export declare function getCPATransactionCode(cpaCode: string): CPACode | undefined;
+export declare function getCPATransactionCodesByAbbreviation(cpaCodeAbbreviation: string): CPACode[];
+export { cpaTransactionCodesCommercial } from './transactions/commercial.js';
+export { cpaTransactionCodesFederal } from './transactions/federal.js';
+export { cpaTransactionCodesPreauthorized } from './transactions/preauthorized.js';
+export { cpaTransactionCodesProvincialLocal } from './transactions/provincialLocal.js';
