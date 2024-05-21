@@ -64,9 +64,9 @@ export const cpaTransactionCodes: Record<CPACodeString, CPACode> =
 /**
  * Retrieves the CPA transaction code category object.
  * @param {string} cpaCode - A CPA code.
- * @returns {CPACodeCategory | undefined} - The CPA code category object, when available.
+ * @returns {object | undefined} - The CPA code category object, when available.
  */
-export function getCPATransactionCodeCategory(
+export function getCPATransactionCodeCategoryByCode(
   cpaCode: string
 ): CPACodeCategory | undefined {
   return _getCodeCategory(cpaTransactionCodeCategories, cpaCode)
@@ -84,7 +84,7 @@ export function isCPATransactionCode(cpaCode: string): boolean {
 /**
  * Retrieves a CPA transaction code object.
  * @param {string} cpaCode - A CPA code.
- * @returns {CPACode | undefined} - The CPA code object, when available.
+ * @returns {object | undefined} - The CPA code object, when available.
  */
 export function getCPATransactionCode(cpaCode: string): CPACode | undefined {
   // eslint-disable-next-line security/detect-object-injection
@@ -94,7 +94,7 @@ export function getCPATransactionCode(cpaCode: string): CPACode | undefined {
 /**
  * Retrieves a list of CPA transaction code objects that correspond to a given abbreviation.
  * @param {string} cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns {CPACode[]} - A list of CPA code objects.
+ * @returns {object[]} - A list of CPA code objects.
  */
 export function getCPATransactionCodesByAbbreviation(
   cpaCodeAbbreviation: string

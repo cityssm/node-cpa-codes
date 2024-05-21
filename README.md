@@ -1,6 +1,7 @@
 # CPA Codes for Node
 
-Lookups, validations, and utility functions for Canadian Payments Association (CPA)
+Lookups, validations, and utility functions for
+[Canadian Payments Association (CPA) Standard 007](https://www.payments.ca/sites/default/files/standard007eng.pdf)
 transaction and return codes.
 
 ## Installation
@@ -38,5 +39,3 @@ console.log(CPA.getCodeCategory('300'))
   }
 */
 ```
-
-[List of CPA Codes](https://www.payments.ca/sites/default/files/standard007eng.pdf)

@@ -3,7 +3,7 @@ import { describe, it } from 'node:test'
 
 import {
   getCPACode,
-  getCPACodeCategory,
+  getCPACodeCategoryByCode,
   getCPACodesByAbbreviation,
   isCPACode
 } from '../index.js'
@@ -26,10 +26,10 @@ await describe('cityssm/cpa-codes', async () => {
     })
   })
 
-  await describe('getCPACodeCategory()', async () => {
+  await describe('getCPACodeCategoryByCode()', async () => {
     await it('Retrieves CPA categories for valid CPA codes', async () => {
       for (const validCpaCode of validCpaCodes) {
-        const cpaCategory = getCPACodeCategory(validCpaCode)
+        const cpaCategory = getCPACodeCategoryByCode(validCpaCode)
 
         assert(cpaCategory)
 
@@ -40,9 +40,7 @@ await describe('cityssm/cpa-codes', async () => {
 
     await it('Returns undefined for invalid CPA codes', async () => {
       for (const invalidCpaCode of invalidCpaCodes) {
-        const cpaCategory = getCPACodeCategory(invalidCpaCode)
-        console.log(cpaCategory)
-        assert(getCPACodeCategory(invalidCpaCode) === undefined)
+        assert(getCPACodeCategoryByCode(invalidCpaCode) === undefined)
       }
     })
   })

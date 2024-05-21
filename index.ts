@@ -1,12 +1,12 @@
 import {
   getCPAReturnCode,
-  getCPAReturnCodeCategory,
+  getCPAReturnCodeCategoryByCode,
   getCPAReturnCodesByAbbreviation,
   isCPAReturnCode
 } from './cpaCodes/returns.js'
 import {
   getCPATransactionCode,
-  getCPATransactionCodeCategory,
+  getCPATransactionCodeCategoryByCode,
   getCPATransactionCodesByAbbreviation,
   isCPATransactionCode
 } from './cpaCodes/transactions.js'
@@ -15,13 +15,14 @@ import type { CPACode, CPACodeCategory } from './types.js'
 /**
  * Retrieves the CPA code category object.
  * @param {string} cpaCode - A CPA code.
- * @returns {CPACodeCategory | undefined} - The CPA code category object, when available.
+ * @returns {object | undefined} - The CPA code category object, when available.
  */
-export function getCPACodeCategory(
+export function getCPACodeCategoryByCode(
   cpaCode: string
 ): CPACodeCategory | undefined {
   return (
-    getCPATransactionCodeCategory(cpaCode) ?? getCPAReturnCodeCategory(cpaCode)
+    getCPATransactionCodeCategoryByCode(cpaCode) ??
+    getCPAReturnCodeCategoryByCode(cpaCode)
   )
 }
 
@@ -37,7 +38,7 @@ export function isCPACode(cpaCode: string): boolean {
 /**
  * Retrieves a CPA code object.
  * @param {string} cpaCode - A CPA code.
- * @returns {CPACode | undefined} - The CPA Code object, when available.
+ * @returns {object | undefined} - The CPA Code object, when available.
  */
 export function getCPACode(cpaCode: string): CPACode | undefined {
   return getCPATransactionCode(cpaCode) ?? getCPAReturnCode(cpaCode)
@@ -46,7 +47,7 @@ export function getCPACode(cpaCode: string): CPACode | undefined {
 /**
  * Retrieves a list of CPA code objects that correspond to a given abbreviation.
  * @param {string} cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns {CPACode[]} - A list of CPA code objects.
+ * @returns {object[]} - A list of CPA code objects.
  */
 export function getCPACodesByAbbreviation(
   cpaCodeAbbreviation: string
@@ -64,7 +65,7 @@ export {
   cpaTransactionCodesFederal,
   cpaTransactionCodesPreauthorized,
   cpaTransactionCodesProvincialLocal,
-  getCPATransactionCodeCategory,
+  getCPATransactionCodeCategoryByCode,
   getCPATransactionCode,
   getCPATransactionCodesByAbbreviation,
   isCPATransactionCode
@@ -77,7 +78,7 @@ export {
   cpaReturnCodesDishonoured,
   cpaReturnCodesCustomerInitiated,
   cpaReturnCodesDefault,
-  getCPAReturnCodeCategory,
+  getCPAReturnCodeCategoryByCode,
   getCPAReturnCode,
   getCPAReturnCodesByAbbreviation,
   isCPAReturnCode

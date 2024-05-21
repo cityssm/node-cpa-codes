@@ -36,15 +36,36 @@ export const cpaTransactionCodeCategories = [
     }
 ];
 export const cpaTransactionCodes = Object.assign({}, cpaTransactionCodesPreauthorized, cpaTransactionCodesFederal, cpaTransactionCodesProvincialLocal, cpaTransactionCodesCommercial);
-export function getCPATransactionCodeCategory(cpaCode) {
+/**
+ * Retrieves the CPA transaction code category object.
+ * @param {string} cpaCode - A CPA code.
+ * @returns {object | undefined} - The CPA code category object, when available.
+ */
+export function getCPATransactionCodeCategoryByCode(cpaCode) {
     return _getCodeCategory(cpaTransactionCodeCategories, cpaCode);
 }
+/**
+ * Tests if a CPA code corresponds to a CPA transaction code.
+ * @param {string} cpaCode - A possible CPA code.
+ * @returns {boolean} - True when the CPA code is a valid CPA transaction code.
+ */
 export function isCPATransactionCode(cpaCode) {
     return Object.hasOwn(cpaTransactionCodes, cpaCode);
 }
+/**
+ * Retrieves a CPA transaction code object.
+ * @param {string} cpaCode - A CPA code.
+ * @returns {object | undefined} - The CPA code object, when available.
+ */
 export function getCPATransactionCode(cpaCode) {
+    // eslint-disable-next-line security/detect-object-injection
     return cpaTransactionCodes[cpaCode];
 }
+/**
+ * Retrieves a list of CPA transaction code objects that correspond to a given abbreviation.
+ * @param {string} cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
+ * @returns {object[]} - A list of CPA code objects.
+ */
 export function getCPATransactionCodesByAbbreviation(cpaCodeAbbreviation) {
     return _getCodesByAbbreviation(Object.values(cpaTransactionCodes), cpaCodeAbbreviation);
 }

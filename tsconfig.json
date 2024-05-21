@@ -6,10 +6,9 @@
     "isolatedModules": false,
     "declaration": true,
     "noImplicitAny": false,
-    "removeComments": true,
+    "removeComments": false,
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strictNullChecks": true

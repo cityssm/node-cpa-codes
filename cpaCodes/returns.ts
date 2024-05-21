@@ -152,9 +152,9 @@ export const cpaReturnCodes: Record<CPACodeString, CPACode> = Object.assign(
 /**
  * Retrieves the CPA return code category object.
  * @param {string} cpaCode - A CPA code.
- * @returns {CPACodeCategory | undefined} - The CPA code category object, when available.
+ * @returns {object | undefined} - The CPA code category object, when available.
  */
-export function getCPAReturnCodeCategory(
+export function getCPAReturnCodeCategoryByCode(
   cpaCode: string
 ): CPACodeCategory | undefined {
   return _getCodeCategory(cpaReturnCodeCategories, cpaCode)
@@ -172,7 +172,7 @@ export function isCPAReturnCode(cpaCode: string): boolean {
 /**
  * Retrieves a CPA return code object.
  * @param {string} cpaCode - A CPA code.
- * @returns {CPACode | undefined} - The CPA Code object, when available.
+ * @returns {object | undefined} - The CPA Code object, when available.
  */
 export function getCPAReturnCode(cpaCode: string): CPACode | undefined {
   // eslint-disable-next-line security/detect-object-injection
@@ -182,7 +182,7 @@ export function getCPAReturnCode(cpaCode: string): CPACode | undefined {
 /**
  * Retrieves a list of CPA return code objects that correspond to a given abbreviation.
  * @param {string} cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns {CPACode[]} - A list of CPA code objects.
+ * @returns {object[]} - A list of CPA code objects.
  */
 export function getCPAReturnCodesByAbbreviation(
   cpaCodeAbbreviation: string

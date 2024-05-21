@@ -5,10 +5,14 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "description": "",
+  "description": "Lookups, validations, and utility functions for Canadian Payments Association (CPA) Standard 007 transaction and return codes.",
   "exports": {
     ".": "./index.js",
+    "./index": "./index.js",
+    "./index.js": "./index.js",
+    "./returns": "./cpaCodes/returns.js",
     "./returns.js": "./cpaCodes/returns.js",
+    "./transactions": "./cpaCodes/transactions.js",
     "./transactions.js": "./cpaCodes/transactions.js"
   },
   "scripts": {
@@ -18,7 +22,9 @@
   "keywords": [
     "cpa",
     "banking",
-    "eft"
+    "eft",
+    "aft",
+    "canada"
   ],
   "author": "The Corporation of the City of Sault Ste. Marie",
   "license": "MIT",
