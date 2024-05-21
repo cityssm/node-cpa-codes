@@ -36,7 +36,7 @@ console.log(CPA.getCPACode('230'))
   }
 */
 
-console.log(CPA.getCodeCategory('300'))
+console.log(CPA.getCodeCategoryByCode('300'))
 /*
   { 
     cpaCodeMin: '300',
