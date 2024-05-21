@@ -1,4 +1,4 @@
-import type { CPACode, CPACodeCategory } from './types'
+import type { CPACode, CPACodeCategory } from './types.js'
 
 function _validateCodeFormat(cpaCode: string): boolean {
   return /^\d{3}$/.test(cpaCode)

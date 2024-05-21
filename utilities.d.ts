@@ -1,4 +1,4 @@
-import type { CPACode, CPACodeCategory } from './types';
+import type { CPACode, CPACodeCategory } from './types.js';
 /**
  * Retrieves a category object from a given list.
  * @param {object[]} categoryList - A list of CPA code category objects.
