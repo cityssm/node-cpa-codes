@@ -137,24 +137,24 @@ export const cpaReturnCodesDefault = {
 export const cpaReturnCodes = Object.assign({}, cpaReturnCodesDishonoured, cpaReturnCodesCustomerInitiated, cpaReturnCodesCreditReturn, cpaReturnCodesDefault);
 /**
  * Retrieves the CPA return code category object.
- * @param {string} cpaCode - A CPA code.
- * @returns {object | undefined} - The CPA code category object, when available.
+ * @param cpaCode - A CPA code.
+ * @returns - The CPA code category object, when available.
  */
 export function getCPAReturnCodeCategoryByCode(cpaCode) {
     return _getCodeCategory(cpaReturnCodeCategories, cpaCode);
 }
 /**
  * Tests if a CPA code corresponds to a CPA return code.
- * @param {string} cpaCode - A possible CPA code.
- * @returns {boolean} - True when the CPA code is a valid CPA return code.
+ * @param cpaCode - A possible CPA code.
+ * @returns - True when the CPA code is a valid CPA return code.
  */
 export function isCPAReturnCode(cpaCode) {
     return Object.hasOwn(cpaReturnCodes, cpaCode);
 }
 /**
  * Retrieves a CPA return code object.
- * @param {string} cpaCode - A CPA code.
- * @returns {object | undefined} - The CPA Code object, when available.
+ * @param cpaCode - A CPA code.
+ * @returns - The CPA Code object, when available.
  */
 export function getCPAReturnCode(cpaCode) {
     // eslint-disable-next-line security/detect-object-injection
@@ -162,8 +162,8 @@ export function getCPAReturnCode(cpaCode) {
 }
 /**
  * Retrieves a list of CPA return code objects that correspond to a given abbreviation.
- * @param {string} cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns {object[]} - A list of CPA code objects.
+ * @param cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
+ * @returns - A list of CPA code objects.
  */
 export function getCPAReturnCodesByAbbreviation(cpaCodeAbbreviation) {
     return _getCodesByAbbreviation(Object.values(cpaReturnCodes), cpaCodeAbbreviation);
