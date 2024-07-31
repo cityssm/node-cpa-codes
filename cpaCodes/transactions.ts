@@ -1,5 +1,9 @@
 import type { CPACode, CPACodeCategory, CPACodeString } from '../types.js'
-import { _getCodeCategory, _getCodesByAbbreviation } from '../utilities.js'
+import {
+  _getCodeCategory,
+  _getCodesByAbbreviation,
+  _validateCPACodeStringFormat
+} from '../utilities.js'
 
 import {
   cpaTransactionCodeCategoryCommerical,
@@ -52,14 +56,13 @@ export const cpaTransactionCodeCategories: CPACodeCategory[] = [
   }
 ]
 
-export const cpaTransactionCodes: Record<CPACodeString, CPACode> =
-  Object.assign(
-    {},
-    cpaTransactionCodesPreauthorized,
-    cpaTransactionCodesFederal,
-    cpaTransactionCodesProvincialLocal,
-    cpaTransactionCodesCommercial
-  )
+export const cpaTransactionCodes = Object.assign(
+  {},
+  cpaTransactionCodesPreauthorized,
+  cpaTransactionCodesFederal,
+  cpaTransactionCodesProvincialLocal,
+  cpaTransactionCodesCommercial
+) as Record<CPACodeString, CPACode>
 
 /**
  * Retrieves the CPA transaction code category object.
@@ -87,6 +90,10 @@ export function isCPATransactionCode(cpaCode: string): boolean {
  * @returns - The CPA code object, when available.
  */
 export function getCPATransactionCode(cpaCode: string): CPACode | undefined {
+  if (!_validateCPACodeStringFormat(cpaCode)) {
+    return undefined
+  }
+
   // eslint-disable-next-line security/detect-object-injection
   return cpaTransactionCodes[cpaCode]
 }

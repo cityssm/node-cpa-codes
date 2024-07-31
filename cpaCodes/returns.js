@@ -1,4 +1,4 @@
-import { _getCodeCategory, _getCodesByAbbreviation } from '../utilities.js';
+import { _getCodeCategory, _getCodesByAbbreviation, _validateCPACodeStringFormat } from '../utilities.js';
 export const cpaReturnCodeCategories = [
     {
         cpaCodeMin: '900',
@@ -157,6 +157,9 @@ export function isCPAReturnCode(cpaCode) {
  * @returns - The CPA Code object, when available.
  */
 export function getCPAReturnCode(cpaCode) {
+    if (!_validateCPACodeStringFormat(cpaCode)) {
+        return undefined;
+    }
     // eslint-disable-next-line security/detect-object-injection
     return cpaReturnCodes[cpaCode];
 }

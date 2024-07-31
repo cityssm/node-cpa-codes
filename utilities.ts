@@ -1,6 +1,11 @@
-import type { CPACode, CPACodeCategory } from './types.js'
+import type { CPACode, CPACodeCategory, CPACodeString } from './types.js'
 
-function _validateCodeFormat(cpaCode: string): boolean {
+/**
+ * Checks if a string is meets the CPA code format.
+ * @param cpaCode - A CPA code.
+ * @returns - True when the string validates to the CPA code format.
+ */
+export function _validateCPACodeStringFormat(cpaCode: string): cpaCode is CPACodeString {
   return /^\d{3}$/.test(cpaCode)
 }
 
@@ -14,7 +19,7 @@ export function _getCodeCategory(
   categoryList: CPACodeCategory[],
   cpaCode: string
 ): CPACodeCategory | undefined {
-  if (!_validateCodeFormat(cpaCode)) {
+  if (!_validateCPACodeStringFormat(cpaCode)) {
     return undefined
   }
 

@@ -1,4 +1,4 @@
-import { _getCodeCategory, _getCodesByAbbreviation } from '../utilities.js';
+import { _getCodeCategory, _getCodesByAbbreviation, _validateCPACodeStringFormat } from '../utilities.js';
 import { cpaTransactionCodeCategoryCommerical, cpaTransactionCodesCommercial } from './transactions/commercial.js';
 import { cpaTransactionCodeCategoryFederal, cpaTransactionCodesFederal } from './transactions/federal.js';
 import { cpaTransactionCodeCategoryPreauthorized, cpaTransactionCodeCategoryPreauthorizedContinued, cpaTransactionCodesPreauthorized } from './transactions/preauthorized.js';
@@ -58,6 +58,9 @@ export function isCPATransactionCode(cpaCode) {
  * @returns - The CPA code object, when available.
  */
 export function getCPATransactionCode(cpaCode) {
+    if (!_validateCPACodeStringFormat(cpaCode)) {
+        return undefined;
+    }
     // eslint-disable-next-line security/detect-object-injection
     return cpaTransactionCodes[cpaCode];
 }

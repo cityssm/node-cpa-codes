@@ -1,5 +1,9 @@
 import type { CPACode, CPACodeCategory, CPACodeString } from '../types.js'
-import { _getCodeCategory, _getCodesByAbbreviation } from '../utilities.js'
+import {
+  _getCodeCategory,
+  _getCodesByAbbreviation,
+  _validateCPACodeStringFormat
+} from '../utilities.js'
 
 export const cpaReturnCodeCategories: CPACodeCategory[] = [
   {
@@ -141,13 +145,13 @@ export const cpaReturnCodesDefault: Record<CPACodeString, CPACode> = {
   }
 }
 
-export const cpaReturnCodes: Record<CPACodeString, CPACode> = Object.assign(
+export const cpaReturnCodes = Object.assign(
   {},
   cpaReturnCodesDishonoured,
   cpaReturnCodesCustomerInitiated,
   cpaReturnCodesCreditReturn,
   cpaReturnCodesDefault
-)
+) as Record<CPACodeString, CPACode>
 
 /**
  * Retrieves the CPA return code category object.
@@ -175,6 +179,10 @@ export function isCPAReturnCode(cpaCode: string): boolean {
  * @returns - The CPA Code object, when available.
  */
 export function getCPAReturnCode(cpaCode: string): CPACode | undefined {
+  if (!_validateCPACodeStringFormat(cpaCode)) {
+    return undefined
+  }
+
   // eslint-disable-next-line security/detect-object-injection
   return cpaReturnCodes[cpaCode]
 }

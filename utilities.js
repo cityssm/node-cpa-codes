@@ -1,4 +1,9 @@
-function _validateCodeFormat(cpaCode) {
+/**
+ * Checks if a string is meets the CPA code format.
+ * @param cpaCode - A CPA code.
+ * @returns - True when the string validates to the CPA code format.
+ */
+export function _validateCPACodeStringFormat(cpaCode) {
     return /^\d{3}$/.test(cpaCode);
 }
 /**
@@ -8,7 +13,7 @@ function _validateCodeFormat(cpaCode) {
  * @returns - A CPA code category object.
  */
 export function _getCodeCategory(categoryList, cpaCode) {
-    if (!_validateCodeFormat(cpaCode)) {
+    if (!_validateCPACodeStringFormat(cpaCode)) {
         return undefined;
     }
     return categoryList.find((possibleCategory) => {
