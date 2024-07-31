@@ -13,13 +13,13 @@ const invalidCpaCodes = ['0', '1000', 'abc']
 
 await describe('cityssm/cpa-codes', async () => {
   await describe('isCPACode()', async () => {
-    await it('Verifies valid CPA codes', async () => {
+    await it('Verifies valid CPA codes', () => {
       for (const validCpaCode of validCpaCodes) {
         assert.ok(isCPACode(validCpaCode))
       }
     })
 
-    await it('Denies invalid CPA codes', async () => {
+    await it('Denies invalid CPA codes', () => {
       for (const invalidCpaCode of invalidCpaCodes) {
         assert.ok(!isCPACode(invalidCpaCode))
       }
@@ -27,7 +27,7 @@ await describe('cityssm/cpa-codes', async () => {
   })
 
   await describe('getCPACodeCategoryByCode()', async () => {
-    await it('Retrieves CPA categories for valid CPA codes', async () => {
+    await it('Retrieves CPA categories for valid CPA codes', () => {
       for (const validCpaCode of validCpaCodes) {
         const cpaCategory = getCPACodeCategoryByCode(validCpaCode)
 
@@ -38,7 +38,7 @@ await describe('cityssm/cpa-codes', async () => {
       }
     })
 
-    await it('Returns undefined for invalid CPA codes', async () => {
+    await it('Returns undefined for invalid CPA codes', () => {
       for (const invalidCpaCode of invalidCpaCodes) {
         assert(getCPACodeCategoryByCode(invalidCpaCode) === undefined)
       }
@@ -46,13 +46,13 @@ await describe('cityssm/cpa-codes', async () => {
   })
 
   await describe('getCPACode()', async () => {
-    await it('Verifies valid CPA codes', async () => {
+    await it('Verifies valid CPA codes', () => {
       for (const validCpaCode of validCpaCodes) {
         assert.ok(getCPACode(validCpaCode))
       }
     })
 
-    await it('Denies invalid CPA codes', async () => {
+    await it('Denies invalid CPA codes', () => {
       for (const invalidCpaCode of invalidCpaCodes) {
         assert.ok(getCPACode(invalidCpaCode) === undefined)
       }
@@ -60,7 +60,7 @@ await describe('cityssm/cpa-codes', async () => {
   })
 
   await describe('getCPACodesByAbbreviation()', async () => {
-    await it('Returns a list of CPA code objects', async () => {
+    await it('Returns a list of CPA code objects', () => {
       const abbreviation = 'TAX'
 
       const cpaCodes = getCPACodesByAbbreviation(abbreviation)
