@@ -1,6 +1,6 @@
 import type { CPACode, CPACodeCategory, CPACodeString } from '../../types.js'
 
-export const cpaTransactionCodeCategoryCommerical: CPACodeCategory = {
+export const cpaTransactionCodeCategoryCommercial: CPACodeCategory = {
   cpaCodeMin: '700',
   cpaCodeMax: '749',
   cpaCodeCategory: 'Commercial Pre-Authorized Debits'

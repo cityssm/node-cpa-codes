@@ -3,7 +3,7 @@ import { getCPATransactionCode, getCPATransactionCodeCategoryByCode, getCPATrans
 /**
  * Retrieves the CPA code category object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA code category object, when available.
+ * @returns The CPA code category object, when available.
  */
 export function getCPACodeCategoryByCode(cpaCode) {
     return (getCPATransactionCodeCategoryByCode(cpaCode) ??
@@ -12,7 +12,7 @@ export function getCPACodeCategoryByCode(cpaCode) {
 /**
  * Tests if a CPA code is valid.
  * @param cpaCode - A possible CPA code.
- * @returns - True when the CPA code is valid.
+ * @returns `true` when the CPA code is valid.
  */
 export function isCPACode(cpaCode) {
     return isCPATransactionCode(cpaCode) || isCPAReturnCode(cpaCode);
@@ -20,7 +20,7 @@ export function isCPACode(cpaCode) {
 /**
  * Retrieves a CPA code object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA Code object, when available.
+ * @returns The CPA Code object, when available.
  */
 export function getCPACode(cpaCode) {
     return getCPATransactionCode(cpaCode) ?? getCPAReturnCode(cpaCode);
@@ -28,7 +28,7 @@ export function getCPACode(cpaCode) {
 /**
  * Retrieves a list of CPA code objects that correspond to a given abbreviation.
  * @param cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns - A list of CPA code objects.
+ * @returns A list of CPA code objects.
  */
 export function getCPACodesByAbbreviation(cpaCodeAbbreviation) {
     const cpaCodes = getCPATransactionCodesByAbbreviation(cpaCodeAbbreviation);

@@ -1,4 +1,4 @@
-export const cpaTransactionCodeCategoryCommerical = {
+export const cpaTransactionCodeCategoryCommercial = {
     cpaCodeMin: '700',
     cpaCodeMax: '749',
     cpaCodeCategory: 'Commercial Pre-Authorized Debits'

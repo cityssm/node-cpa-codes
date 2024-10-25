@@ -31,7 +31,7 @@ await describe('cityssm/cpa-codes', async () => {
       for (const validCpaCode of validCpaCodes) {
         const cpaCategory = getCPACodeCategoryByCode(validCpaCode)
 
-        assert(cpaCategory)
+        assert(cpaCategory !== undefined)
 
         assert.ok(validCpaCode >= cpaCategory.cpaCodeMin)
         assert.ok(validCpaCode <= cpaCategory.cpaCodeMax)
@@ -48,13 +48,13 @@ await describe('cityssm/cpa-codes', async () => {
   await describe('getCPACode()', async () => {
     await it('Verifies valid CPA codes', () => {
       for (const validCpaCode of validCpaCodes) {
-        assert.ok(getCPACode(validCpaCode))
+        assert(getCPACode(validCpaCode) !== undefined)
       }
     })
 
     await it('Denies invalid CPA codes', () => {
       for (const invalidCpaCode of invalidCpaCodes) {
-        assert.ok(getCPACode(invalidCpaCode) === undefined)
+        assert(getCPACode(invalidCpaCode) === undefined)
       }
     })
   })

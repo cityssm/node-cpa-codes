@@ -15,7 +15,7 @@ import type { CPACode, CPACodeCategory } from './types.js'
 /**
  * Retrieves the CPA code category object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA code category object, when available.
+ * @returns The CPA code category object, when available.
  */
 export function getCPACodeCategoryByCode(
   cpaCode: string
@@ -29,7 +29,7 @@ export function getCPACodeCategoryByCode(
 /**
  * Tests if a CPA code is valid.
  * @param cpaCode - A possible CPA code.
- * @returns - True when the CPA code is valid.
+ * @returns `true` when the CPA code is valid.
  */
 export function isCPACode(cpaCode: string): boolean {
   return isCPATransactionCode(cpaCode) || isCPAReturnCode(cpaCode)
@@ -38,7 +38,7 @@ export function isCPACode(cpaCode: string): boolean {
 /**
  * Retrieves a CPA code object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA Code object, when available.
+ * @returns The CPA Code object, when available.
  */
 export function getCPACode(cpaCode: string): CPACode | undefined {
   return getCPATransactionCode(cpaCode) ?? getCPAReturnCode(cpaCode)
@@ -47,7 +47,7 @@ export function getCPACode(cpaCode: string): CPACode | undefined {
 /**
  * Retrieves a list of CPA code objects that correspond to a given abbreviation.
  * @param cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns - A list of CPA code objects.
+ * @returns A list of CPA code objects.
  */
 export function getCPACodesByAbbreviation(
   cpaCodeAbbreviation: string

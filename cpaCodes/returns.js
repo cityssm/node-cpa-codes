@@ -134,11 +134,16 @@ export const cpaReturnCodesDefault = {
         cpaCodeAbbreviationFrench: 'DEF'
     }
 };
-export const cpaReturnCodes = Object.assign({}, cpaReturnCodesDishonoured, cpaReturnCodesCustomerInitiated, cpaReturnCodesCreditReturn, cpaReturnCodesDefault);
+export const cpaReturnCodes = ({
+    ...cpaReturnCodesDishonoured,
+    ...cpaReturnCodesCustomerInitiated,
+    ...cpaReturnCodesCreditReturn,
+    ...cpaReturnCodesDefault
+});
 /**
  * Retrieves the CPA return code category object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA code category object, when available.
+ * @returns The CPA code category object, when available.
  */
 export function getCPAReturnCodeCategoryByCode(cpaCode) {
     return _getCodeCategory(cpaReturnCodeCategories, cpaCode);
@@ -146,7 +151,7 @@ export function getCPAReturnCodeCategoryByCode(cpaCode) {
 /**
  * Tests if a CPA code corresponds to a CPA return code.
  * @param cpaCode - A possible CPA code.
- * @returns - True when the CPA code is a valid CPA return code.
+ * @returns `true` when the CPA code is a valid CPA return code.
  */
 export function isCPAReturnCode(cpaCode) {
     return Object.hasOwn(cpaReturnCodes, cpaCode);
@@ -154,7 +159,7 @@ export function isCPAReturnCode(cpaCode) {
 /**
  * Retrieves a CPA return code object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA Code object, when available.
+ * @returns The CPA Code object, when available.
  */
 export function getCPAReturnCode(cpaCode) {
     if (!_validateCPACodeStringFormat(cpaCode)) {
@@ -166,7 +171,7 @@ export function getCPAReturnCode(cpaCode) {
 /**
  * Retrieves a list of CPA return code objects that correspond to a given abbreviation.
  * @param cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns - A list of CPA code objects.
+ * @returns A list of CPA code objects.
  */
 export function getCPAReturnCodesByAbbreviation(cpaCodeAbbreviation) {
     return _getCodesByAbbreviation(Object.values(cpaReturnCodes), cpaCodeAbbreviation);

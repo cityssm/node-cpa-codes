@@ -145,18 +145,18 @@ export const cpaReturnCodesDefault: Record<CPACodeString, CPACode> = {
   }
 }
 
-export const cpaReturnCodes = Object.assign(
-  {},
-  cpaReturnCodesDishonoured,
-  cpaReturnCodesCustomerInitiated,
-  cpaReturnCodesCreditReturn,
-  cpaReturnCodesDefault
-) as Record<CPACodeString, CPACode>
+export const cpaReturnCodes: Record<CPACodeString, CPACode> = ({
+  
+  ...cpaReturnCodesDishonoured,
+  ...cpaReturnCodesCustomerInitiated,
+  ...cpaReturnCodesCreditReturn,
+  ...cpaReturnCodesDefault
+})
 
 /**
  * Retrieves the CPA return code category object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA code category object, when available.
+ * @returns The CPA code category object, when available.
  */
 export function getCPAReturnCodeCategoryByCode(
   cpaCode: string
@@ -167,7 +167,7 @@ export function getCPAReturnCodeCategoryByCode(
 /**
  * Tests if a CPA code corresponds to a CPA return code.
  * @param cpaCode - A possible CPA code.
- * @returns - True when the CPA code is a valid CPA return code.
+ * @returns `true` when the CPA code is a valid CPA return code.
  */
 export function isCPAReturnCode(cpaCode: string): boolean {
   return Object.hasOwn(cpaReturnCodes, cpaCode)
@@ -176,7 +176,7 @@ export function isCPAReturnCode(cpaCode: string): boolean {
 /**
  * Retrieves a CPA return code object.
  * @param cpaCode - A CPA code.
- * @returns - The CPA Code object, when available.
+ * @returns The CPA Code object, when available.
  */
 export function getCPAReturnCode(cpaCode: string): CPACode | undefined {
   if (!_validateCPACodeStringFormat(cpaCode)) {
@@ -190,7 +190,7 @@ export function getCPAReturnCode(cpaCode: string): CPACode | undefined {
 /**
  * Retrieves a list of CPA return code objects that correspond to a given abbreviation.
  * @param cpaCodeAbbreviation - A two or three letter CPA code abbreviation.
- * @returns - A list of CPA code objects.
+ * @returns A list of CPA code objects.
  */
 export function getCPAReturnCodesByAbbreviation(
   cpaCodeAbbreviation: string
