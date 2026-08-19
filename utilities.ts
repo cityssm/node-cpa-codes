@@ -5,8 +5,10 @@ import type { CPACode, CPACodeCategory, CPACodeString } from './types.js'
  * @param cpaCode - A CPA code.
  * @returns - True when the string validates to the CPA code format.
  */
-export function _validateCPACodeStringFormat(cpaCode: string): cpaCode is CPACodeString {
-  return /^\d{3}$/.test(cpaCode)
+export function _validateCPACodeStringFormat(
+  cpaCode: string
+): cpaCode is CPACodeString {
+  return /^\d{3}$/v.test(cpaCode)
 }
 
 /**
@@ -23,12 +25,11 @@ export function _getCodeCategory(
     return undefined
   }
 
-  return categoryList.find((possibleCategory) => {
-    return (
+  return categoryList.find(
+    (possibleCategory) =>
       cpaCode >= possibleCategory.cpaCodeMin &&
       cpaCode <= possibleCategory.cpaCodeMax
-    )
-  })
+  )
 }
 
 /**
@@ -43,11 +44,10 @@ export function _getCodesByAbbreviation(
 ): CPACode[] {
   const upperCaseCpaCodeAbbreviation = cpaCodeAbbreviation.toUpperCase()
 
-  return codeList.filter((possibleCode) => {
-    return (
+  return codeList.filter(
+    (possibleCode) =>
       upperCaseCpaCodeAbbreviation ===
         possibleCode.cpaCodeAbbreviationEnglish ||
       upperCaseCpaCodeAbbreviation === possibleCode.cpaCodeAbbreviationFrench
-    )
-  })
+  )
 }

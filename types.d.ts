@@ -1,8 +1,8 @@
 export type CPACodeString = `${number}`;
 export interface CPACodeCategory {
-    cpaCodeMin: CPACodeString;
-    cpaCodeMax: CPACodeString;
     cpaCodeCategory: string;
+    cpaCodeMax: CPACodeString;
+    cpaCodeMin: CPACodeString;
 }
 export interface CPACode {
     cpaCodeFullName: string;

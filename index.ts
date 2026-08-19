@@ -59,29 +59,29 @@ export function getCPACodesByAbbreviation(
 }
 
 export {
+  cpaReturnCodeCategories,
+  cpaReturnCodes,
+  cpaReturnCodesCreditReturn,
+  cpaReturnCodesCustomerInitiated,
+  cpaReturnCodesDefault,
+  cpaReturnCodesDishonoured,
+  getCPAReturnCode,
+  getCPAReturnCodeCategoryByCode,
+  getCPAReturnCodesByAbbreviation,
+  isCPAReturnCode
+} from './cpaCodes/returns.js'
+
+export {
   cpaTransactionCodeCategories,
   cpaTransactionCodes,
   cpaTransactionCodesCommercial,
   cpaTransactionCodesFederal,
   cpaTransactionCodesPreauthorized,
   cpaTransactionCodesProvincialLocal,
-  getCPATransactionCodeCategoryByCode,
   getCPATransactionCode,
+  getCPATransactionCodeCategoryByCode,
   getCPATransactionCodesByAbbreviation,
   isCPATransactionCode
 } from './cpaCodes/transactions.js'
 
-export {
-  cpaReturnCodeCategories,
-  cpaReturnCodes,
-  cpaReturnCodesCreditReturn,
-  cpaReturnCodesDishonoured,
-  cpaReturnCodesCustomerInitiated,
-  cpaReturnCodesDefault,
-  getCPAReturnCodeCategoryByCode,
-  getCPAReturnCode,
-  getCPAReturnCodesByAbbreviation,
-  isCPAReturnCode
-} from './cpaCodes/returns.js'
-
-export type { CPACodeCategory, CPACode } from './types.js'
+export type { CPACode, CPACodeCategory } from './types.js'

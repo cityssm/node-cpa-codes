@@ -1,7 +1,7 @@
 export const cpaTransactionCodeCategoryProvincialLocal = {
-    cpaCodeMin: '600',
+    cpaCodeCategory: 'Provincial and Local Government Transactions',
     cpaCodeMax: '620',
-    cpaCodeCategory: 'Provincial and Local Government Transactions'
+    cpaCodeMin: '600'
 };
 export const cpaTransactionCodesProvincialLocal = {
     600: {

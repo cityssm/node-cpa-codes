@@ -20,26 +20,26 @@ await describe('cityssm/cpa-codes', async () => {
         await it('Retrieves CPA categories for valid CPA codes', () => {
             for (const validCpaCode of validCpaCodes) {
                 const cpaCategory = getCPACodeCategoryByCode(validCpaCode);
-                assert(cpaCategory !== undefined);
+                assert.ok(cpaCategory !== undefined);
                 assert.ok(validCpaCode >= cpaCategory.cpaCodeMin);
                 assert.ok(validCpaCode <= cpaCategory.cpaCodeMax);
             }
         });
         await it('Returns undefined for invalid CPA codes', () => {
             for (const invalidCpaCode of invalidCpaCodes) {
-                assert(getCPACodeCategoryByCode(invalidCpaCode) === undefined);
+                assert.ok(getCPACodeCategoryByCode(invalidCpaCode) === undefined);
             }
         });
     });
     await describe('getCPACode()', async () => {
         await it('Verifies valid CPA codes', () => {
             for (const validCpaCode of validCpaCodes) {
-                assert(getCPACode(validCpaCode) !== undefined);
+                assert.ok(getCPACode(validCpaCode) !== undefined);
             }
         });
         await it('Denies invalid CPA codes', () => {
             for (const invalidCpaCode of invalidCpaCodes) {
-                assert(getCPACode(invalidCpaCode) === undefined);
+                assert.ok(getCPACode(invalidCpaCode) === undefined);
             }
         });
     });

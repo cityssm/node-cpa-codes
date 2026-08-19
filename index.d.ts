@@ -23,6 +23,6 @@ export declare function getCPACode(cpaCode: string): CPACode | undefined;
  * @returns A list of CPA code objects.
  */
 export declare function getCPACodesByAbbreviation(cpaCodeAbbreviation: string): CPACode[];
-export { cpaTransactionCodeCategories, cpaTransactionCodes, cpaTransactionCodesCommercial, cpaTransactionCodesFederal, cpaTransactionCodesPreauthorized, cpaTransactionCodesProvincialLocal, getCPATransactionCodeCategoryByCode, getCPATransactionCode, getCPATransactionCodesByAbbreviation, isCPATransactionCode } from './cpaCodes/transactions.js';
-export { cpaReturnCodeCategories, cpaReturnCodes, cpaReturnCodesCreditReturn, cpaReturnCodesDishonoured, cpaReturnCodesCustomerInitiated, cpaReturnCodesDefault, getCPAReturnCodeCategoryByCode, getCPAReturnCode, getCPAReturnCodesByAbbreviation, isCPAReturnCode } from './cpaCodes/returns.js';
-export type { CPACodeCategory, CPACode } from './types.js';
+export { cpaReturnCodeCategories, cpaReturnCodes, cpaReturnCodesCreditReturn, cpaReturnCodesCustomerInitiated, cpaReturnCodesDefault, cpaReturnCodesDishonoured, getCPAReturnCode, getCPAReturnCodeCategoryByCode, getCPAReturnCodesByAbbreviation, isCPAReturnCode } from './cpaCodes/returns.js';
+export { cpaTransactionCodeCategories, cpaTransactionCodes, cpaTransactionCodesCommercial, cpaTransactionCodesFederal, cpaTransactionCodesPreauthorized, cpaTransactionCodesProvincialLocal, getCPATransactionCode, getCPATransactionCodeCategoryByCode, getCPATransactionCodesByAbbreviation, isCPATransactionCode } from './cpaCodes/transactions.js';
+export type { CPACode, CPACodeCategory } from './types.js';

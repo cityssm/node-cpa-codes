@@ -7,85 +7,97 @@ import {
 
 export const cpaReturnCodeCategories: CPACodeCategory[] = [
   {
-    cpaCodeMin: '900',
+    cpaCodeCategory: 'FI Dishonoured Transaction',
     cpaCodeMax: '914',
-    cpaCodeCategory: 'FI Dishonoured Transaction'
+    cpaCodeMin: '900'
   },
   {
-    cpaCodeMin: '915',
+    cpaCodeCategory: 'Customer Initiated Returns',
     cpaCodeMax: '921',
-    cpaCodeCategory: 'Customer Initiated Returns'
+    cpaCodeMin: '915'
   },
   {
-    cpaCodeMin: '922',
+    cpaCodeCategory: 'Credit Return',
     cpaCodeMax: '922',
-    cpaCodeCategory: 'Credit Return'
+    cpaCodeMin: '922'
   },
   {
-    cpaCodeMin: '990',
+    cpaCodeCategory: 'Default',
     cpaCodeMax: '990',
-    cpaCodeCategory: 'Default'
+    cpaCodeMin: '990'
   }
 ]
 
 export const cpaReturnCodesDishonoured: Record<CPACodeString, CPACode> = {
   900: {
     cpaCodeFullName: 'Edit Reject',
+
     cpaCodeAbbreviationEnglish: 'REJ',
     cpaCodeAbbreviationFrench: 'REV'
   },
   901: {
     cpaCodeFullName: 'NSF',
+
     cpaCodeAbbreviationEnglish: 'NSF',
     cpaCodeAbbreviationFrench: 'DSP'
   },
   902: {
     cpaCodeFullName: 'Account Not Found',
+
     cpaCodeAbbreviationEnglish: 'CNT',
     cpaCodeAbbreviationFrench: 'ITV'
   },
   903: {
     cpaCodeFullName: 'Payment Stopped/Recalled',
+
     cpaCodeAbbreviationEnglish: 'STP',
     cpaCodeAbbreviationFrench: 'ARR'
   },
   905: {
     cpaCodeFullName: 'Account Closed',
+
     cpaCodeAbbreviationEnglish: 'CLS',
     cpaCodeAbbreviationFrench: 'FER'
   },
   907: {
     cpaCodeFullName: 'No Debit Allowed',
+
     cpaCodeAbbreviationEnglish: 'NCP',
     cpaCodeAbbreviationFrench: 'PPC'
   },
   908: {
     cpaCodeFullName: 'Funds Not Cleared',
+
     cpaCodeAbbreviationEnglish: 'FNC',
     cpaCodeAbbreviationFrench: 'FNL'
   },
   909: {
     cpaCodeFullName: 'Currency/Account Mismatch',
+
     cpaCodeAbbreviationEnglish: 'WCU',
     cpaCodeAbbreviationFrench: 'MDC'
   },
   910: {
     cpaCodeFullName: 'Payor/Payee Deceased',
+
     cpaCodeAbbreviationEnglish: 'DEC',
     cpaCodeAbbreviationFrench: 'DEC'
   },
   911: {
     cpaCodeFullName: 'Account Frozen',
+
     cpaCodeAbbreviationEnglish: 'FZN',
     cpaCodeAbbreviationFrench: 'BLQ'
   },
   912: {
     cpaCodeFullName: 'Invalid/Incorrect Account Number',
+
     cpaCodeAbbreviationEnglish: 'INA',
     cpaCodeAbbreviationFrench: 'INV'
   },
   914: {
     cpaCodeFullName: 'Incorrect Payor/Payee Name',
+
     cpaCodeAbbreviationEnglish: 'INP',
     cpaCodeAbbreviationFrench: 'NOM'
   }
@@ -94,36 +106,43 @@ export const cpaReturnCodesDishonoured: Record<CPACodeString, CPACode> = {
 export const cpaReturnCodesCustomerInitiated: Record<CPACodeString, CPACode> = {
   915: {
     cpaCodeFullName: 'No Agreement Existed',
+
     cpaCodeAbbreviationEnglish: 'ANP',
     cpaCodeAbbreviationFrench: 'NOG'
   },
   916: {
     cpaCodeFullName: 'Not According to Agreement - Personal',
+
     cpaCodeAbbreviationEnglish: 'NCA',
     cpaCodeAbbreviationFrench: 'ACP'
   },
   917: {
     cpaCodeFullName: 'Agreement Revoked - Personal',
+
     cpaCodeAbbreviationEnglish: 'ARP',
     cpaCodeAbbreviationFrench: 'AGP'
   },
   918: {
     cpaCodeFullName: 'No Confirmation/Pre-Notification - Personal',
+
     cpaCodeAbbreviationEnglish: 'PNP',
     cpaCodeAbbreviationFrench: 'PRP'
   },
   919: {
     cpaCodeFullName: 'Not According to Agreement - Business',
+
     cpaCodeAbbreviationEnglish: 'NCE',
     cpaCodeAbbreviationFrench: 'ACB'
   },
   920: {
     cpaCodeFullName: 'Agreement Revoked - Business',
+
     cpaCodeAbbreviationEnglish: 'ARE',
     cpaCodeAbbreviationFrench: 'AGB'
   },
   921: {
     cpaCodeFullName: 'No Confirmation/Pre-Notification - Business',
+
     cpaCodeAbbreviationEnglish: 'PNE',
     cpaCodeAbbreviationFrench: 'PRB'
   }
@@ -132,6 +151,7 @@ export const cpaReturnCodesCustomerInitiated: Record<CPACodeString, CPACode> = {
 export const cpaReturnCodesCreditReturn: Record<CPACodeString, CPACode> = {
   922: {
     cpaCodeFullName: 'Customer Initiated Return',
+
     cpaCodeAbbreviationEnglish: 'REC',
     cpaCodeAbbreviationFrench: 'CIR'
   }
@@ -140,18 +160,18 @@ export const cpaReturnCodesCreditReturn: Record<CPACodeString, CPACode> = {
 export const cpaReturnCodesDefault: Record<CPACodeString, CPACode> = {
   990: {
     cpaCodeFullName: 'Institution in Default',
+
     cpaCodeAbbreviationEnglish: 'DEF',
     cpaCodeAbbreviationFrench: 'DEF'
   }
 }
 
-export const cpaReturnCodes: Record<CPACodeString, CPACode> = ({
-  
+export const cpaReturnCodes: Record<CPACodeString, CPACode> = {
   ...cpaReturnCodesDishonoured,
   ...cpaReturnCodesCustomerInitiated,
   ...cpaReturnCodesCreditReturn,
   ...cpaReturnCodesDefault
-})
+}
 
 /**
  * Retrieves the CPA return code category object.
@@ -183,7 +203,6 @@ export function getCPAReturnCode(cpaCode: string): CPACode | undefined {
     return undefined
   }
 
-  // eslint-disable-next-line security/detect-object-injection
   return cpaReturnCodes[cpaCode]
 }
 

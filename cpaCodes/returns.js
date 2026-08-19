@@ -1,24 +1,24 @@
 import { _getCodeCategory, _getCodesByAbbreviation, _validateCPACodeStringFormat } from '../utilities.js';
 export const cpaReturnCodeCategories = [
     {
-        cpaCodeMin: '900',
+        cpaCodeCategory: 'FI Dishonoured Transaction',
         cpaCodeMax: '914',
-        cpaCodeCategory: 'FI Dishonoured Transaction'
+        cpaCodeMin: '900'
     },
     {
-        cpaCodeMin: '915',
+        cpaCodeCategory: 'Customer Initiated Returns',
         cpaCodeMax: '921',
-        cpaCodeCategory: 'Customer Initiated Returns'
+        cpaCodeMin: '915'
     },
     {
-        cpaCodeMin: '922',
+        cpaCodeCategory: 'Credit Return',
         cpaCodeMax: '922',
-        cpaCodeCategory: 'Credit Return'
+        cpaCodeMin: '922'
     },
     {
-        cpaCodeMin: '990',
+        cpaCodeCategory: 'Default',
         cpaCodeMax: '990',
-        cpaCodeCategory: 'Default'
+        cpaCodeMin: '990'
     }
 ];
 export const cpaReturnCodesDishonoured = {
@@ -134,12 +134,12 @@ export const cpaReturnCodesDefault = {
         cpaCodeAbbreviationFrench: 'DEF'
     }
 };
-export const cpaReturnCodes = ({
+export const cpaReturnCodes = {
     ...cpaReturnCodesDishonoured,
     ...cpaReturnCodesCustomerInitiated,
     ...cpaReturnCodesCreditReturn,
     ...cpaReturnCodesDefault
-});
+};
 /**
  * Retrieves the CPA return code category object.
  * @param cpaCode - A CPA code.
@@ -165,7 +165,6 @@ export function getCPAReturnCode(cpaCode) {
     if (!_validateCPACodeStringFormat(cpaCode)) {
         return undefined;
     }
-    // eslint-disable-next-line security/detect-object-injection
     return cpaReturnCodes[cpaCode];
 }
 /**

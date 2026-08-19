@@ -4,7 +4,7 @@
  * @returns - True when the string validates to the CPA code format.
  */
 export function _validateCPACodeStringFormat(cpaCode) {
-    return /^\d{3}$/.test(cpaCode);
+    return /^\d{3}$/v.test(cpaCode);
 }
 /**
  * Retrieves a category object from a given list.
@@ -16,10 +16,8 @@ export function _getCodeCategory(categoryList, cpaCode) {
     if (!_validateCPACodeStringFormat(cpaCode)) {
         return undefined;
     }
-    return categoryList.find((possibleCategory) => {
-        return (cpaCode >= possibleCategory.cpaCodeMin &&
-            cpaCode <= possibleCategory.cpaCodeMax);
-    });
+    return categoryList.find((possibleCategory) => cpaCode >= possibleCategory.cpaCodeMin &&
+        cpaCode <= possibleCategory.cpaCodeMax);
 }
 /**
  * Retrieves a list of CPA code objects that correspond to a given abbreviation.
@@ -29,9 +27,7 @@ export function _getCodeCategory(categoryList, cpaCode) {
  */
 export function _getCodesByAbbreviation(codeList, cpaCodeAbbreviation) {
     const upperCaseCpaCodeAbbreviation = cpaCodeAbbreviation.toUpperCase();
-    return codeList.filter((possibleCode) => {
-        return (upperCaseCpaCodeAbbreviation ===
-            possibleCode.cpaCodeAbbreviationEnglish ||
-            upperCaseCpaCodeAbbreviation === possibleCode.cpaCodeAbbreviationFrench);
-    });
+    return codeList.filter((possibleCode) => upperCaseCpaCodeAbbreviation ===
+        possibleCode.cpaCodeAbbreviationEnglish ||
+        upperCaseCpaCodeAbbreviation === possibleCode.cpaCodeAbbreviationFrench);
 }

@@ -1,7 +1,7 @@
 export const cpaTransactionCodeCategoryFederal = {
-    cpaCodeMin: '300',
+    cpaCodeCategory: 'Federal Government Transactions',
     cpaCodeMax: '329',
-    cpaCodeCategory: 'Federal Government Transactions'
+    cpaCodeMin: '300'
 };
 export const cpaTransactionCodesFederal = {
     300: {

@@ -1,7 +1,7 @@
 export const cpaTransactionCodeCategoryCommercial = {
-    cpaCodeMin: '700',
+    cpaCodeCategory: 'Commercial Pre-Authorized Debits',
     cpaCodeMax: '749',
-    cpaCodeCategory: 'Commercial Pre-Authorized Debits'
+    cpaCodeMin: '700'
 };
 export const cpaTransactionCodesCommercial = {
     701: {

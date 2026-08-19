@@ -1,12 +1,12 @@
 export const cpaTransactionCodeCategoryPreauthorized = {
-    cpaCodeMin: '200',
+    cpaCodeCategory: 'Pre-Authorized Transactions',
     cpaCodeMax: '229',
-    cpaCodeCategory: 'Pre-Authorized Transactions'
+    cpaCodeMin: '200'
 };
 export const cpaTransactionCodeCategoryPreauthorizedContinued = {
-    cpaCodeMin: '330',
+    cpaCodeCategory: 'Pre-Authorized Transactions',
     cpaCodeMax: '599',
-    cpaCodeCategory: 'Pre-Authorized Transactions'
+    cpaCodeMin: '330'
 };
 export const cpaTransactionCodesPreauthorized = {
     200: {

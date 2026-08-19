@@ -25,34 +25,34 @@ import {
 
 export const cpaTransactionCodeCategories: CPACodeCategory[] = [
   {
-    cpaCodeMin: '000',
+    cpaCodeCategory: 'Future Use',
     cpaCodeMax: '149',
-    cpaCodeCategory: 'Future Use'
+    cpaCodeMin: '000'
   },
   {
-    cpaCodeMin: '150',
+    cpaCodeCategory: 'Clearing Items',
     cpaCodeMax: '199',
-    cpaCodeCategory: 'Clearing Items'
+    cpaCodeMin: '150'
   },
   cpaTransactionCodeCategoryPreauthorized,
   cpaTransactionCodeCategoryFederal,
   cpaTransactionCodeCategoryPreauthorizedContinued,
   cpaTransactionCodeCategoryProvincialLocal,
   {
-    cpaCodeMin: '621',
+    cpaCodeCategory: 'Unassigned',
     cpaCodeMax: '649',
-    cpaCodeCategory: 'Unassigned'
+    cpaCodeMin: '621'
   },
   {
-    cpaCodeMin: '651',
+    cpaCodeCategory: 'Unassigned',
     cpaCodeMax: '699',
-    cpaCodeCategory: 'Unassigned'
+    cpaCodeMin: '651'
   },
   cpaTransactionCodeCategoryCommercial,
   {
-    cpaCodeMin: '750',
+    cpaCodeCategory: 'Internal Direct Clearer Use',
     cpaCodeMax: '899',
-    cpaCodeCategory: 'Internal Direct Clearer Use'
+    cpaCodeMin: '750'
   }
 ]
 
@@ -93,7 +93,6 @@ export function getCPATransactionCode(cpaCode: string): CPACode | undefined {
     return undefined
   }
 
-  // eslint-disable-next-line security/detect-object-injection
   return cpaTransactionCodes[cpaCode]
 }
 
