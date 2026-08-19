@@ -1,6 +1,6 @@
 {
   "name": "@cityssm/cpa-codes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lookups, validations, and utility functions for Canadian Payments Association (CPA) Standard 007 transaction and return codes.",
   "keywords": [
     "cpa",
